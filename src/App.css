@@ -1,6 +1,4 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  background-color: aliceblue;
-  min-height: 100vh;
+.App {
+  font-family: sans-serif;
+  text-align: center;
 }

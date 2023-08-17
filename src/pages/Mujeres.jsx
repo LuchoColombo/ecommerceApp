@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Item from "../Item";
-import "./styles.css";
+import "../components/ItemListContainer/styles.css";
 import { Link } from "react-router-dom";
+import Item from "../components/Item";
 
-const ItemListContainer = () => {
+const Mujeres = () => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
@@ -22,9 +22,13 @@ const ItemListContainer = () => {
     fetchItemListContainer();
   }, []);
 
+  const femaleCharacters = characters.filter(
+    ({ Genero }) => Genero === "Femenino"
+  );
+
   return (
     <div className="list-container">
-      {characters.map(({ _id, Imagen, Nombre, Genero }) => (
+      {femaleCharacters.map(({ _id, Imagen, Nombre, Genero }) => (
         <div key={_id}>
           <Link to={`/details/${_id}`}>
             <Item image={Imagen} name={Nombre} genero={Genero} />
@@ -35,4 +39,4 @@ const ItemListContainer = () => {
   );
 };
 
-export default ItemListContainer;
+export default Mujeres;

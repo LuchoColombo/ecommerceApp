@@ -1,0 +1,43 @@
+.detail-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 600px;
+}
+
+.card-image {
+    flex: 1;
+    padding: 20px;
+}
+
+.card-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-info {
+    flex: 2;
+    padding: 20px;
+}
+
+.card-info h2 {
+    margin-top: 0;
+}
+
+.card-info p {
+    color: #666;
+    margin: 5px;
+}
+
+.card-info-detail {
+    margin-top: 5px;
+    font-size: 15px;
+}
