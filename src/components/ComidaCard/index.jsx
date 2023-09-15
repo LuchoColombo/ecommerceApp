@@ -5,28 +5,31 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import PropTypes from "prop-types";
 
-const Item = ({ image, name, genero }) => {
+const ComidaCard = ({ img, plato, precio, categoria, children }) => {
   return (
-    <Card sx={{ maxWidth: 345, margin: 2 }}>
+    <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        <CardMedia component="img" image={image} alt="green iguana" />
+        <CardMedia component="img" image={img} alt="green iguana" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {name}
+            {plato}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {genero}
+            {precio} | {categoria}
           </Typography>
+          {children}
         </CardContent>
       </CardActionArea>
     </Card>
   );
 };
 
-export default Item;
+export default ComidaCard;
 
-Item.propTypes = {
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  genero: PropTypes.string.isRequired,
+ComidaCard.propTypes = {
+  img: PropTypes.string,
+  plato: PropTypes.string,
+  precio: PropTypes.number,
+  categoria: PropTypes.string,
+  children: PropTypes.any,
 };

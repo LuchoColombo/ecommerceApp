@@ -1,0 +1,14 @@
+.ComidasListContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  margin: auto;
+  width: max-content;
+  margin-top: 50px;
+}
+
+.Spinner {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
