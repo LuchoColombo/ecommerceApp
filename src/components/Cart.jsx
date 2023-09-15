@@ -1,6 +1,6 @@
 import "./Cart.css";
 
-import { useId } from "react";
+import { useId, useState } from "react";
 import { CartIcon, ClearCartIcon } from "./Icons.jsx";
 import { useCart } from "../hooks/useCart.js";
 import PropTypes from "prop-types";
@@ -24,15 +24,39 @@ function CartItem({ img, precio, plato, cantidad, addToCart }) {
 export function Cart() {
   const cartCheckboxId = useId();
   const { cart, clearCart, addToCart } = useCart();
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+
+  const totalAmount = cart.reduce((total, product) => {
+    return total + product.precio * product.cantidad;
+  }, 0);
+
+  const handleBuyClick = () => {
+    if (nombre && apellido) {
+      alert("Compra realizada");
+      clearCart();
+      setNombre("");
+      setApellido("");
+    } else {
+      alert("Por favor, ingrese su nombre y apellido antes de comprar.");
+    }
+  };
 
   return (
     <>
-      <label className="cart-button" htmlFor={cartCheckboxId}>
+      <label
+        className="cart-button"
+        style={{ display: "flex", position: "fixed" }}
+        htmlFor={cartCheckboxId}
+      >
         <CartIcon />
       </label>
       <input id={cartCheckboxId} type="checkbox" hidden />
 
       <aside className="cart">
+        <button onClick={clearCart} style={{ backgroundColor: "red" }}>
+          <ClearCartIcon />
+        </button>
         <ul>
           {cart.map((product) => (
             <CartItem
@@ -43,8 +67,41 @@ export function Cart() {
           ))}
         </ul>
 
-        <button onClick={clearCart}>
-          <ClearCartIcon />
+        <div className="cart-total">
+          <strong>TOTAL A PAGAR:</strong> ${totalAmount}
+        </div>
+        <form>
+          <div>
+            <label htmlFor="nombre">Nombre:</label>
+            <input
+              type="text"
+              id="nombre"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="apellido">Apellido:</label>
+            <input
+              type="text"
+              id="apellido"
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
+              required
+            />
+          </div>
+        </form>
+
+        <button
+          onClick={handleBuyClick}
+          style={{
+            marginBottom: "50px",
+            marginTop: "25px",
+            backgroundColor: "green",
+          }}
+        >
+          COMPRAR
         </button>
       </aside>
     </>
