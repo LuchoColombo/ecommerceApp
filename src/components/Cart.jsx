@@ -22,8 +22,8 @@ function CartItem({
 
       <footer>
         <small>Cantidad: {cantidad}</small>
-        <button onClick={addToCart}>+</button>
         <button onClick={subtractFromCart}>-</button>
+        <button onClick={addToCart}>+</button>
       </footer>
     </li>
   );
