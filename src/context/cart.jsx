@@ -20,7 +20,6 @@ function useCartReducer() {
     });
 
   const clearCart = () => dispatch({ type: "CLEAR_CART" });
-  
 
   return { state, addToCart, removeFromCart, clearCart };
 }
