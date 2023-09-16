@@ -13,8 +13,6 @@ function App() {
 
   const [comidasData, setComidasData] = useState([]);
 
-  console.log("HOLAAAAAAAAAAAAA", comidasData);
-
   useEffect(() => {
     const getComidas = async () => {
       let q;

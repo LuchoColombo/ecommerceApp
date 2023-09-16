@@ -5,7 +5,14 @@ import { CartIcon, ClearCartIcon } from "./Icons.jsx";
 import { useCart } from "../hooks/useCart.js";
 import PropTypes from "prop-types";
 
-function CartItem({ img, precio, plato, cantidad, addToCart }) {
+function CartItem({
+  img,
+  precio,
+  plato,
+  cantidad,
+  addToCart,
+  subtractFromCart,
+}) {
   return (
     <li>
       <img src={img} alt={plato} />
@@ -16,6 +23,7 @@ function CartItem({ img, precio, plato, cantidad, addToCart }) {
       <footer>
         <small>Cantidad: {cantidad}</small>
         <button onClick={addToCart}>+</button>
+        <button onClick={subtractFromCart}>-</button>
       </footer>
     </li>
   );
@@ -23,7 +31,7 @@ function CartItem({ img, precio, plato, cantidad, addToCart }) {
 
 export function Cart() {
   const cartCheckboxId = useId();
-  const { cart, clearCart, addToCart } = useCart();
+  const { cart, clearCart, addToCart, subtractFromCart } = useCart();
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
 
@@ -38,7 +46,7 @@ export function Cart() {
       setNombre("");
       setApellido("");
     } else {
-      alert("Por favor, ingrese su nombre y apellido antes de comprar.");
+      alert("Por favor ingrese nombre y apellido");
     }
   };
 
@@ -62,6 +70,7 @@ export function Cart() {
             <CartItem
               key={product.id}
               addToCart={() => addToCart(product)}
+              subtractFromCart={() => subtractFromCart(product)}
               {...product}
             />
           ))}
@@ -114,4 +123,5 @@ CartItem.propTypes = {
   plato: PropTypes.string,
   cantidad: PropTypes.number,
   addToCart: PropTypes.func,
+  subtractFromCart: PropTypes.func,
 };
