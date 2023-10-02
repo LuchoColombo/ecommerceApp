@@ -2,6 +2,8 @@ import "./Products.css";
 import { AddToCartIcon, RemoveFromCartIcon } from "./Icons.jsx";
 import { useCart } from "../hooks/useCart.js";
 import PropTypes from "prop-types";
+import { CardWidget } from "./CardWidget";
+import { Link } from "react-router-dom";
 
 export function Products({ products }) {
   const { addToCart, removeFromCart, cart } = useCart();
@@ -17,11 +19,7 @@ export function Products({ products }) {
           const isProductInCart = checkProductInCart(product);
 
           return (
-            <li key={product.id}>
-              <img src={product.img} alt={product.plato} />
-              <div>
-                <strong>{product.plato}</strong> - ${product.precio}
-              </div>
+            <CardWidget key={product.id} product={product}>
               <div>
                 <button
                   style={{ backgroundColor: isProductInCart ? "red" : "#09f" }}
@@ -34,7 +32,10 @@ export function Products({ products }) {
                   {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
                 </button>
               </div>
-            </li>
+              <Link to={`/details/${product.id}`}>
+                <button>View More</button>
+              </Link>
+            </CardWidget>
           );
         })}
       </ul>

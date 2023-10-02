@@ -7,6 +7,8 @@ import { CartProvider } from "./context/cart.jsx";
 import { useEffect, useState } from "react";
 import { collection, getDocs, query } from "firebase/firestore";
 import { db } from "./firebase";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ComidaDetail } from "./views/ComidaDetail.jsx";
 
 function App() {
   const { filterProducts } = useFilters();
@@ -33,11 +35,16 @@ function App() {
   const filteredProducts = filterProducts(comidasData);
 
   return (
-    <CartProvider>
-      <Header />
-      <Cart />
-      <Products products={filteredProducts} />
-    </CartProvider>
+    <Router>
+      <CartProvider>
+        <Header />
+        <Cart />
+        <Routes>
+          <Route path="/" element={<Products products={filteredProducts} />} />
+          <Route path="/details/:id" element={<ComidaDetail />} />
+        </Routes>
+      </CartProvider>
+    </Router>
   );
 }
 

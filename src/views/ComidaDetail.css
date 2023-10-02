@@ -1,0 +1,39 @@
+.Spinner {
+  display: flex;
+  justify-content: center;
+  margin: 40;
+}
+
+.comidas {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.comidas li {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background: #111;
+  color: #fff;
+  padding: 1rem;
+}
+
+.comidas h3 {
+  margin: 0;
+}
+
+.comidas span {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.comidas img {
+  border-radius: 4px;
+  aspect-ratio: 16/9;
+  display: block;
+  object-fit: cover;
+  background: #fff;
+}
