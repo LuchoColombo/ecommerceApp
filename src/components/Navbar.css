@@ -1,14 +1,27 @@
 .Navbar {
-	display: flex;
-	width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .NavbarContainer {
-	display: flex;
-	width: 100%;
-	justify-content: space-around;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
-.LinkHov:hover {
-    color: red;
+.linkButton {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.linkButton:hover {
+  color: tomato;
+}
+
+.purchaseButton {
+  color: grey;
+  font-size: 18px;
+  font-weight: bold;
 }

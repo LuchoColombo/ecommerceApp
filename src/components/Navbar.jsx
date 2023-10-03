@@ -3,41 +3,24 @@ import { AppBar, Container, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const styles = {
-  linkButton: {
-    textDecoration: "none",
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  linkButtonHover: {
-    color: "blue",
-  },
-  purchaseButton: {
-    color: "grey",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-};
-
 export const Navbar = () => {
   return (
     <AppBar position="static" className="Navbar">
       <Container maxWidth="xl" style={{ backgroundColor: "black" }}>
         <Toolbar disableGutters className="NavbarContainer">
-          <Link to="/" style={styles.linkButton}>
+          <Link to="/" className="linkButton">
             Home
           </Link>
-          <Link to="/entrada" style={styles.linkButton}>
+          <Link to="/entrada" className="linkButton">
             Entradas
           </Link>
-          <Link to="/principal" style={styles.linkButton}>
+          <Link to="/principal" className="linkButton">
             Principal
           </Link>
-          <Link to="/postre" style={styles.linkButton}>
+          <Link to="/postre" className="linkButton">
             Postres
           </Link>
-          <Link to="/bebidas" className="LinkHov" style={styles.linkButton}>
+          <Link to="/bebidas" className="linkButton">
             Bebidas
           </Link>
         </Toolbar>
