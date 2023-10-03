@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { CardWidget } from "../components/CardWidget";
+import { CardWidget } from "../../components/CardWidget";
 
 import { useParams } from "react-router-dom";
-import { AddToCartIcon, RemoveFromCartIcon } from "../components/Icons";
-import { useCart } from "../hooks/useCart";
+import { AddToCartIcon, RemoveFromCartIcon } from "../../components/Icons";
+import { useCart } from "../../hooks/useCart";
 import PropTypes from "prop-types";
-import Spinner from "../components/Spinner";
+import Spinner from "../../components/Spinner";
 import {
   collection,
   documentId,
@@ -13,7 +13,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import "./ComidaDetail.css";
 
 export const ComidaDetail = () => {
